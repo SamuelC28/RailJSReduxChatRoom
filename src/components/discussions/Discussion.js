@@ -1,15 +1,8 @@
 import React from 'react';
 import NewReply from './NewReply'
-
-// import { Link } from 'react-router-dom';
-
-// import PropTypes from 'prop-types';
 import Replies from '../replies/Replies';
-// import { connect } from 'react-redux';
 
-// onDeleteClick =reply => {
-//   this.props.deleteReply(reply);
-// }
+
 
 const Discussion = ({ discussion,history }) => {
   // debugger;
@@ -25,8 +18,8 @@ const Discussion = ({ discussion,history }) => {
       {discussion.content}
       </strong>  
     </h5>
-    <Replies replies={discussion.replies}/>
-   
+    <Replies replies={discussion.replies} discussion_id={discussion.id}/>
+    <br></br>  <br></br>  <br></br>
     <NewReply discussionId={discussion.id} history={ history }/>
   </div>)
 }

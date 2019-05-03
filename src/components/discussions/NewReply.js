@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addReply } from '../../actions/discussionActions';
 
@@ -48,7 +48,7 @@ import { addReply } from '../../actions/discussionActions';
         const { reply, errors} = this.state;
         
         return (
-            
+           
             <div className="container">
              <h4 className="text-secondary"><strong>Leave a reply</strong></h4>
            
@@ -71,7 +71,8 @@ import { addReply } from '../../actions/discussionActions';
                             </div>
                 
                     <div className="form-actions">
-                        <input type="submit" value="Leave a reply" className="btn btn-primary" />
+                    <br/>
+                        <input type="submit" value="Add a reply" className="btn btn-primary" />
                     </div>
                 </form>
         </div>

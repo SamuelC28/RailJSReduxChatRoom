@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteReply } from '../../actions/discussionActions';
-import Discussion from '../../components/discussions/Discussion'
+// import Discussion from '../../components/discussions/Discussion'
 import '../../App.css'
 
 class Replies extends Component {
@@ -9,14 +9,14 @@ class Replies extends Component {
     // debugger
   }
 
-  deleteButtonClick = id =>{
-    this.props.deleteReply(id)
+  deleteButtonClick = (discussion_id, rep_id) =>{
+    this.props.deleteReply(discussion_id, rep_id)
   }
 
 
   renderReplies=(replies)=>{
     //   debugger
-    let discussion  = this.props.discussion;
+    // let discussion  = this.props.discussion;
        return replies.map((rep)=>
       
        <li key={rep.id}>  
@@ -27,7 +27,7 @@ class Replies extends Component {
         {/* <button className="deletebtn" onClick={this.deleteButtonClick.bind(this)}>x</button> */}
         {/* <Discussion key={discussion.id}/> */}
         {/* <Discussion discussionId={discussion.id} /> */}
-        <button className="deletebtn" onClick={(e) => this.deleteButtonClick(rep.id)}>x</button>
+        <button className="deletebtn" onClick={(e) => this.deleteButtonClick(this.props.discussion_id, rep.id)}>x</button>
        
         {/* <i
           className="fas fa-times"

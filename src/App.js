@@ -11,6 +11,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import EditDiscussion from './components/discussions/EditDiscussion';
+
 
 
 class App extends Component {
@@ -25,10 +27,11 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Discussions} />
               <Route exact path="/discussions" component={Discussions} />
-              {/* <Route exact path={`/:title"`} component={SingleDiscussionShow} /> */}
               <Route exact path='/discussions/new' component={NewDiscussion} />
+             
               <Route exact path={`/discussions/:id`} component={SingleDiscussionShow} />
               <Route exact path="/channels" component={ChannelList} />
+              <Route exact path="/discussions/:id/edit" component={EditDiscussion} />
               <Route exact path='/channels/new' component={NewChannel} />
               <Route exact path={`/channels/:id`} component={SingleChannelShow} />
             </Switch>

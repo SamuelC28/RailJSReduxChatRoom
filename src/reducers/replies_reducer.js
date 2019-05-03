@@ -1,4 +1,4 @@
-import {GET_REPLIES, DELETE_REPLY} from '../actions/types';
+import {GET_REPLIES} from '../actions/types';
 export default function(state = INITIAL_STATE , action) {
 
     switch (action.type) {
@@ -7,13 +7,13 @@ export default function(state = INITIAL_STATE , action) {
                ...state,
                replies: action.payload
                 };
-        case DELETE_REPLY:
-            return {
-                ...state,
-                replies: state.replies.filter(
-                    reply => reply.id !== action.payload
-                  )
-                };
+        // case DELETE_REPLY:
+        //     return {
+        //         ...state,
+        //         replies: state.replies.filter(
+        //             reply => reply.id !== action.payload
+        //           )
+        //         };
                 
 
         default:

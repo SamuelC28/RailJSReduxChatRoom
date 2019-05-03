@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import Discussion from '../discussions/Discussion';
+// import Discussion from '../discussions/Discussion';
 import PropTypes from 'prop-types';
 
 

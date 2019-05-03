@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { getOneChannel } from '../../actions/channelActions';
 import Channel from './Channel';
-import Discussion from '../discussions/Discussion';
+// import Discussion from '../discussions/Discussion';
 
 class SingleChannelShow extends Component {
     componentWillMount() {

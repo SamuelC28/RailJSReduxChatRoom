@@ -35,17 +35,20 @@ class Discussions extends Component {
 
   renderDiscussions() {
     return this.props.discussions.map((discussion) => {
+      
       return(
-       
-        <ul key={discussion.id}>
+        <li key={discussion.id}>
           <Link to ={`/discussions/${discussion.id}`}>
            <h6><strong>{discussion.title}</strong></h6>
           </Link>
-          <p> {discussion.content}
+          <p> {discussion.content} </p>
+
           <button className="deletebtn" onClick={(e) => this.deleteButtonClick(discussion.id)}>x</button>
-          </p> 
+          <Link to={`/discussions/${discussion.id}/edit`}>Edit</Link>
+          <p>-----------------------------------------------------------------------------------------------</p>
+          {/* </p>  */}
          
-       </ul>
+        </li>
       )
     });
   }
@@ -67,13 +70,14 @@ class Discussions extends Component {
               </section>
             </div>
         </div>
-        <div className="channel-pos"></div>
+        
+        {/* <div className="channel-pos"></div>
         <div className="card3 card mb-6">
             <section className="channel">
               <h5 className="card-header text-secondary"><strong>Channels</strong></h5> 
               <ul>{this.renderChannels()}</ul>
             </section>
-         </div>
+         </div> */}
        
       </React.Fragment>
     );
@@ -81,10 +85,10 @@ class Discussions extends Component {
 }
 
 
-Discussions.propTypes = {
-  discussions: PropTypes.array.isRequired,
-  getDiscussions: PropTypes.func.isRequired
-};
+// Discussions.propTypes = {
+//   discussions: PropTypes.array.isRequired,
+//   getDiscussions: PropTypes.func.isRequired
+// };
 
 const mapStateToProps = state => ({
   discussions: state.discussion.discussions

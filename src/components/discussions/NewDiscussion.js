@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addDiscussion } from '../../actions/discussionActions';
-import ChannelList from '../channels/ChannelList'
+// import ChannelList from '../channels/ChannelList'
 // import Select from 'react-select'; 
 // import Select from '.Select'; 
 // import 'bootstrap/dist/css/bootstrap.min.css'; 
 
-// import Login from '../login/Login'
-// import TextInputs from '../layout/TextInputs';
-// import { Form, Button, Container, Row, Col, InputGroup } from 'react-bootstrap';
 
-const options = [{value: 2, label: 'chocolate'}, {value: 3, label: 'cookie'} ]
+// const options = [{value: 2, label: 'chocolate'}, {value: 3, label: 'cookie'} ]
 
  class NewDiscussion extends Component {
      state = {
@@ -57,8 +54,8 @@ const options = [{value: 2, label: 'chocolate'}, {value: 3, label: 'cookie'} ]
     onChange = e => this.setState({[e.target.name]: e.target.value })
     
     render() {
-        const { title, content, selectedOption, errors} = this.state;
-        const options = <ChannelList />
+        const { title, content, errors} = this.state;
+        // const options = <ChannelList />
         if (title === '') {
             this.setState({ errors: {title: 'You must enter a title!'}});
             return;

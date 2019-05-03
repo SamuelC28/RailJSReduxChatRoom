@@ -10,8 +10,10 @@
   /* margin-right: -77px;  */
 }
 .card {
-  max-width: 700px;
-  margin: 50px;
+  max-width: 800px;
+  /* margin-left: 170px; */
+  top: 60px;
+  left: 140px;
 }
 .card-header {
   text-align: center;
@@ -29,4 +31,39 @@
 }
 .reply{
   max-width: 800px;
+}
+/* .card card-body {
+  max-width: 60;
+} */
+
+.navbar-color-r{
+	background-color: rgb(24, 207, 158);
+
+}
+.navbar-color-r a{
+	color: white;
+}
+ .c1 .active{
+	color:black;
+	background-color: white;
+	border-bottom:3px solid green;
+
+}
+ .ul2 li a{
+	border-bottom:3px solid red;
+
+}
+ .ul2 li a:hover,
+ .ul2 li a:active,
+ .ul2 li a:focus{
+	background:white;
+	color:black;
+	border-bottom:3px solid green;
+
+}
+.icon-bar{
+	background-color: white;
+}
+.btn{
+	border:2px solid white;
 }
