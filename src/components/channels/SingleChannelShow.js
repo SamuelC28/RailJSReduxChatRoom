@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
-import PropTypes from 'prop-types';
-// import PropsRoute from './PropsRoute';
-// import {Route} from 'react-router-dom';
 import { getOneChannel } from '../../actions/channelActions';
 import Channel from './Channel';
+import Discussion from '../discussions/Discussion';
 
 class SingleChannelShow extends Component {
     componentWillMount() {
@@ -16,24 +13,48 @@ class SingleChannelShow extends Component {
     render() { 
         
     let { channel } = this.props;
-       if (channel === null) return null;
+    // let discussions  = this.props.discussion
+    //    if (channel === null) return null;
 
-       const { match } = this.props;
-       const channelId = match.params.id;
-        channel = channel.find(e => e.id === Number(channelId ));
+    //    const { match } = this.props;
+    //    const channelId = match.params.id;
+    //     channel = channel.find(e => e.id === Number(channelId ));
 
-       if (!this.props.getOneChannel) {  
-           return <div>Channel is loading ...</div>
+    //    if (!this.props.getOneChannel) {  
+    //        return <div>Channel is loading ...</div>
+    //    }
+    //     return(
+    //         <div className="container">
+    //            <Channel channel={channel} />
+    //         </div>
+    //     );   
+    // }
+
+       if (channel === {}) {
+        return <div> No Channel</div>;
        }
+      
+
+    //    const { match } = this.props;
+    //    const channelId = match.params.id;
+    //     channel = channel.find(e => e.id === Number(channelId ));
+
+    //    if (!this.props.getOneChannel) {  
+    //        return <div>Channel is loading ...</div>
+    //    }
         return(
+            <React.Fragment>
             <div className="container">
                <Channel channel={channel} />
+               {/* <Discussion channel={discussions} /> */}
+               {/* <Discussion discussion={channel.discussions}/> */}
             </div>
+            </React.Fragment>
         );   
     }
 }
 
 function mapStateToProps(state) {
-    return { channel: state.channel.channels};
+    return { channel: state.channels.single};
 }
 export default connect(mapStateToProps, {getOneChannel})(SingleChannelShow); 

@@ -1,33 +1,32 @@
-.App {
+/* .panel-body{
+  background-color: rgb(190, 121, 30)ff;
+} */
+
+.deletebtn {
+  max-width: 28px;
+  background-color: red;
+  border: 1px;
+  padding-right: 3px;
+  /* margin-right: -77px;  */
+}
+.card {
+  max-width: 700px;
+  margin: 50px;
+}
+.card-header {
   text-align: center;
+  /* background-color: rgb(6, 156, 211); */
+  
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.card3 {
+  max-width: 300px;
+  margin-top: 5px;
+  padding-right: 0px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.channel{
+  /* padding-top: -99px; */
+  margin-top: 0px;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.reply{
+  max-width: 800px;
 }

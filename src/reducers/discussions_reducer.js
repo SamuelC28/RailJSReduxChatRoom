@@ -1,4 +1,4 @@
-import { GET_DISCUSSIONS, GET_DISCUSSION} from '../actions/types';
+import { GET_DISCUSSIONS, GET_DISCUSSION, ADD_NEWDISCUSSION,ADD_NEWREPLY, DELETE_DISCUSSION} from '../actions/types';
 
 export default function(state = INITIAL_STATE , action) {
 
@@ -15,7 +15,25 @@ export default function(state = INITIAL_STATE , action) {
                 discussion: action.payload
                 }; 
 
-    
+                case ADD_NEWDISCUSSION:
+                return {
+                ...state,
+                discussions: [action.payload, ...state.discussions]
+                }; 
+                case ADD_NEWREPLY:
+                let discussion=action.payload.data
+                return {...state,discussion}
+
+                case DELETE_DISCUSSION:
+                return {
+                ...state,
+                discussions: state.discussions.filter(
+                    discussion => discussion.id !== action.payload
+                  )
+                };
+
+                
+
     default:
         return state;
     }

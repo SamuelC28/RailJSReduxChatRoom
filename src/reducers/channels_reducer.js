@@ -1,17 +1,22 @@
-import { GET_CHANNELS, GET_CHANNEL } from '../actions/types';
+import { GET_CHANNELS, GET_CHANNEL, ADD_NEWCHANNEL } from '../actions/types';
 export default function(state = INITIAL_STATE , action) {
 
     switch (action.type) {
        case GET_CHANNELS:
             return {
                ...state,
-               channels: action.payload
+               all: action.payload
                 };
 
         case GET_CHANNEL:
             return {
               ...state,
-              channel: action.payload
+              single: action.payload
+            }; 
+            case ADD_NEWCHANNEL:
+            return {
+              ...state,
+              all:[...state.all,action.payload]
             }; 
                 
     
@@ -23,4 +28,4 @@ export default function(state = INITIAL_STATE , action) {
 
 
 
-const INITIAL_STATE = { channels: [], channel: [] };
+const INITIAL_STATE = { all: [], single: [] };

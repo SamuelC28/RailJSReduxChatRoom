@@ -1,56 +1,80 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-// import { Route,withRouter } from 'react-router-dom';
-// import SingleDiscussionShow from './SingleDiscussionShow';
 import { Link } from 'react-router-dom';
-import { getDiscussions } from '../../actions/discussionActions';
+import { getDiscussions, deleteDiscussion  } from '../../actions/discussionActions';
 import ChannelList from '../channels/ChannelList';
+// import { ADD_NEWREPLY } from '../../actions/types';
+
+// import NewDiscussion from './Discussion'
+
+
 
 
 class Discussions extends Component {
+  // static contextType = {
+  //   router: PropTypes.object
+  // }
+
   componentWillMount(){
     this.props.getDiscussions();
   }
 
-
+  deleteButtonClick = id =>{
+    this.props.deleteDiscussion(id)
+  //   .then(() => {
+  //     this.context.router.push("/");
+  // })
+  }
   renderChannels() {
       const { channel } = this.props;
-     
         return(
           <ChannelList channel={channel} />
-      
-      )}
+        )
+  }
 
-        renderDiscussions() {
-        return this.props.discussions.map((discussion) => {
-        return(
-          <li key={discussion.id}>
+  renderDiscussions() {
+    return this.props.discussions.map((discussion) => {
+      return(
+       
+        <ul key={discussion.id}>
           <Link to ={`/discussions/${discussion.id}`}>
-           <h4> {discussion.title}</h4>
+           <h6><strong>{discussion.title}</strong></h6>
           </Link>
-          <h4> {discussion.content}</h4>
+          <p> {discussion.content}
+          <button className="deletebtn" onClick={(e) => this.deleteButtonClick(discussion.id)}>x</button>
+          </p> 
          
-          </li>
-        )}
-       );
-    }
+       </ul>
+      )
+    });
+  }
   
+
   
-  
+
+
   render() {
         
     return (
       <React.Fragment>
-        <section className="discussionList">
-          <h2>Events</h2>
-          <ul>{this.renderDiscussions()}</ul>
-        </section>
-  
-        <section className="eventList">
-          <h2>Channels</h2>
-          <ul>{this.renderChannels()}</ul>
-        </section>
+        <div className="card2 card mb-6">
+          <h4 className="card-header text-secondary"><strong>Recent discussions</strong></h4>
+            <div className="card-body">
+        
+              <section className="discussionList">
+                <ul>{this.renderDiscussions()}</ul>
+              </section>
+            </div>
+        </div>
+        <div className="channel-pos"></div>
+        <div className="card3 card mb-6">
+            <section className="channel">
+              <h5 className="card-header text-secondary"><strong>Channels</strong></h5> 
+              <ul>{this.renderChannels()}</ul>
+            </section>
+         </div>
+       
       </React.Fragment>
     );
   }
@@ -66,7 +90,7 @@ const mapStateToProps = state => ({
   discussions: state.discussion.discussions
 });
 
-export default connect(mapStateToProps, { getDiscussions })(Discussions);
+export default connect(mapStateToProps, { getDiscussions, deleteDiscussion })(Discussions);
 
 
 
@@ -75,23 +99,3 @@ export default connect(mapStateToProps, { getDiscussions })(Discussions);
 
 
 
-//   render() {
-//       return this.props.discussions.map((discussion, ) => {
-//       return(
-       
-//         <li key={discussion.id}>
-//         <Link to ={`/discussions/${discussion.id}`}>
-//          <h4> {discussion.title}</h4>
-//         </Link>
-//         <h4> {discussion.content}</h4>
-       
-//         </li>
-        
-        
-//       )
-      
-//     }
-   
-//     );
-//   }
-// }

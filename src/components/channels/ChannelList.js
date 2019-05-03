@@ -1,48 +1,53 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+
 import { Link } from 'react-router-dom';
 import { getChannelList } from '../../actions/channelActions';
-// import Discussion from '../discusssions/Discussion';
+
 
 
 
 class ChannelList extends Component {
   componentWillMount(){
-    // debugger
+    // debugger]
+    
     this.props.getChannelList();
   }
 
   renderChannels=(channels)=>{
+    
     if(channels){
-      return this.props.channels.map((chan)=>
-      <Link to={`/channels/${chan.id}`}>
-      {chan.channel}
+      return channels.map((chan)=>
+     
+       <Link key={chan.id} to={`/channels/${chan.id}`}>
+        <li><strong>{chan.channel}</strong></li>
       </Link>)
+      
     }else{
       return "NO CHANNELS YET"
     } 
   }
 
+
+
   
    
 
   render() {
-    // debugger
+   
     const { channels }=this.props;
     return(
       <div>
+        <ul>
         {this.renderChannels(channels)}    
+        </ul>
       </div>
     )
     }
   }
-  
-
-
 
 const mapStateToProps = state => ({
-  channels: state.channel.channels
+  channels: state.channels.all
 });
 
 
